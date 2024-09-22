@@ -38,7 +38,7 @@ public class ProductoRestController {
                     existingProducto.setNombre(producto.getNombre());
                     existingProducto.setDescripcion(producto.getDescripcion());
                     existingProducto.setPrecio(producto.getPrecio());
-                    existingProducto.setCantidadEnStock(producto.getCantidadEnStock());
+                    existingProducto.setCantidad_en_stock(producto.getCantidad_en_stock());
                     existingProducto.setCategoria(producto.getCategoria());
                     return ProductoRepository.save(existingProducto);
                 })

@@ -1,4 +1,5 @@
 package com.project.demo.logic.entity.producto;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.project.demo.logic.entity.categoria.Categoria;
 
 import jakarta.persistence.*;
@@ -22,10 +23,11 @@ public class Producto {
     private double precio;
 
     @Column(nullable = false)
-    private int cantidadEnStock;
+    private int cantidad_en_stock;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", nullable = false)
+    @JsonBackReference
     private Categoria categoria;
 
     // Getters y Setters
@@ -62,12 +64,12 @@ public class Producto {
         this.precio = precio;
     }
 
-    public int getCantidadEnStock() {
-        return cantidadEnStock;
+    public int getCantidad_en_stock() {
+        return cantidad_en_stock;
     }
 
-    public void setCantidadEnStock(int cantidadEnStock) {
-        this.cantidadEnStock = cantidadEnStock;
+    public void setCantidad_en_stock(int cantidad_en_stock) {
+        this.cantidad_en_stock = cantidad_en_stock;
     }
 
     public Categoria getCategoria() {

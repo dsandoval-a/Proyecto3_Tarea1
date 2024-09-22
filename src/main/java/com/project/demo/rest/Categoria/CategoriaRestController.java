@@ -32,7 +32,9 @@ public class CategoriaRestController {
         }
 
         @PutMapping("/{id}")
-        public Categoria updateCategoria(@PathVariable Long id, @RequestBody Categoria categoria) {
+        @PreAuthorize("hasRole('SUPER_ADMIN')")
+
+        public Categoria updateCategoria(@PathVariable Long id,  @RequestBody Categoria categoria) {
             return CategoriaRepository.findById(id)
                     .map(existingCategoria -> {
                         existingCategoria.setNombre(categoria.getNombre());
@@ -49,6 +51,7 @@ public class CategoriaRestController {
 
 
         @DeleteMapping("/{id}")
+        @PreAuthorize("hasRole('SUPER_ADMIN')")
         public void deleteCategoria(@PathVariable Long id) {
             CategoriaRepository.deleteById(id);
         }
