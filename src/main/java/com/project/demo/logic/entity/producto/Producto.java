@@ -26,7 +26,7 @@ public class Producto {
     private int cantidad_en_stock;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoria_id", nullable = false)
+    @JoinColumn(name = "id_categoria", nullable = false)
     @JsonBackReference
     private Categoria categoria;
 
